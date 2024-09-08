@@ -1,19 +1,18 @@
-*{
+* {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-
 }
-body{
+
+body {
   min-height: 100vh;
-
 }
 
-a{
+a {
   text-decoration: none;
 }
 
-.app{
-  width: 90%;
-  margin: 0 auto;
+.app {
+  max-width: calc(100% - 40px); /* Subtract 40px (20px on each side) from the total width */
+  margin: 0 20px; /* 20px margin on both left and right */
 }

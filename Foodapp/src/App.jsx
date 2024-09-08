@@ -1,26 +1,28 @@
-import { BrowserRouter as Router, Routes } from 'react-router-dom';
-
+import {   Route, Routes } from 'react-router-dom';
+import React, { useState } from 'react';
 import './App.css'
 import Navbar from './Components/Navbar/Navbar';
 
-function App() {
+import Home from'./Pages/Home/Home'
 
+import Cart from './Pages/Cart/Cart';
+import PlaceOrder from './Pages/PlaceOrder/Placeorder';
+
+function App() {
   return (
     <>
-    <div>
-
       <div className="app">
-        <Navbar/>
+      <Navbar /> 
       </div>
-    </div>
-    <Router>
       <Routes>
-      {/* <Route path="/" element={<Home />} /> */}
+        <Route path="/" element={<Home/>} /> Define Home route
+        <Route path="/cart" element={<Cart/>} /> Define Home route
+        <Route path="/order" element={<PlaceOrder/>} /> Define Home route
+
 
       </Routes>
-    </Router>
     </>
-  )
+  );
 }
 
-export default App
+export default App;

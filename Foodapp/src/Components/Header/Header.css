@@ -1,0 +1,50 @@
+
+.header {
+        position: relative;
+    background: url('../../assets/header_img.png') no-repeat center center;
+    background-size: cover;
+        background-position: center;
+        height: 80vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+        margin: 20px ;
+      }
+      
+      .header-contents {
+        text-align: center; /* Center text */
+        background-color: rgba(0, 0, 0, 0.5); /* Optional: semi-transparent background */
+        padding: 20px;
+        border-radius: 10px;
+        color: antiquewhite;
+        display: inline-block; /* Prevent it from stretching too much */
+      }
+      
+      .header-contents h2 {
+        font-size: 32px; /* Adjust the font size of the heading */
+        margin-bottom: 20px;
+      }
+      
+      .header-contents p {
+        font-size: 16px;
+        width: 80%; /* Ensure the paragraph doesn't stretch too far */
+        margin: 20px auto; /* Center the paragraph within the container */
+        text-align: left;
+        word-wrap: break-word;
+      }
+      
+      .Header-btn {
+        font-size: 16px;
+        padding: 10px 20px;
+        background-color: #ff9800;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color  0.3s ease;
+      }
+      
+      .Header-btn:hover {
+        background-color: #e67b00;
+      }

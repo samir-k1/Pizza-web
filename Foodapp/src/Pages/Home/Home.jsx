@@ -3,6 +3,7 @@ import './Home.css'
 import Header from '../../Components/Header/Header'
 import Exploremenu from '../../Components/ExploreMenu/Exploremenu'
 import { useState } from 'react'
+import FoodDisplay from '../../Components/FoodDisplay/FoodDisplay'
 const Home = () => {
   const [category, setCategory] = useState();
 
@@ -10,6 +11,7 @@ const Home = () => {
     <div>
       <Header/>
       <Exploremenu category={category} setCategory={setCategory}/>
+      <FoodDisplay  category={category}/>
     </div>
   )
 }

@@ -1,0 +1,85 @@
+.food-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 300px; /* Define the max-width of the card */
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 16px;
+    background-color: white;
+  }
+  
+  .food-item-img-container {
+    position: relative;
+    text-align: center;
+    margin-bottom: 12px;
+  }
+  
+  .food-item-img-container img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+  }
+  
+  .add {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    background-color: #fff;
+    border-radius: 50%;
+  }
+  
+  .food-item-counter {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 8px;
+  }
+  
+  .food-item-counter img {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+  }
+  
+  .food-item-info {
+    margin-top: 16px;
+  }
+  
+  .food-item-name-rating {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+  }
+  
+  .food-item-name-rating p {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0;
+  }
+  
+  .food-item-des {
+    font-size: 14px;
+    color: #666;
+    margin: 8px 0;
+  }
+  
+  .food-item-price {
+    font-size: 16px;
+    color: #333;
+    font-weight: bold;
+  }
+  
+  @media (max-width: 768px) {
+    .food-item {
+      max-width: 100%;
+    }
+  }
+  

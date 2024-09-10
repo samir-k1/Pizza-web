@@ -1,53 +1,61 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import './Fooditem.css'
-import { useState } from 'react'
+// import { useState } from 'react'
 import { assets } from '../../assets/assets'
+import { StoreContext } from '../../Pages/Context/StoreContext'
 const FoodItem = ({ id, name, price, description, image }) => {
-    const [itemCount, setItemCount] = useState(0); // Set initial value to 0
+    const { cartItems, addToCart, removeFromCart } = useContext(StoreContext);
+  
+    console.log(`Rendering FoodItem with id: ${id}`);  // Log id to check uniqueness
   
     return (
       <div className='food-item'>
         <div className="food-item-img-container">
-          <img src={image} alt="" className="classname" />
+          <img src={image} alt={name} className="classname" />
           
-          {/* If itemCount is 0, show the 'add' icon */}
-          {!itemCount ? (
+          {!cartItems[id] ? (
             <img
               className='add'
-              onClick={() => setItemCount(prev => prev + 1)}
+              onClick={() => {
+                console.log(`Add clicked for id: ${id}`);
+                addToCart(id);
+              }}
               src={assets.add_icon_white}
-              alt=''
+              alt='Add item'
             />
           ) : (
             <div className='food-item-counter'>
               <img
-                onClick={() => setItemCount(prev => prev + 1)}
+                onClick={() => {
+                  console.log(`Increment clicked for id: ${id}`);
+                  addToCart(id);
+                }}
                 src={assets.add_icon_green}
-                alt=""
+                alt="Increment item"
               />
-              <div>{itemCount}</div>
+              <div>{cartItems[id]}</div>
               <img
-                onClick={() => setItemCount(prev => (prev > 0 ? prev - 1 : 0))} // Ensure count doesn't go below 0
+                onClick={() => {
+                  console.log(`Decrement clicked for id: ${id}`);
+                  removeFromCart(id);
+                }}
                 src={assets.remove_icon_red}
-                alt=""
+                alt="Decrement item"
               />
             </div>
           )}
         </div>
-
-        <div className="foof-item-info">
-            <div className="food-item-name-rating">
-                <p>{name}</p>
-                <img src={assets.rating_starts} alt="" />
-
-            </div>
-            <p className="food-item-des">{description}</p>
-            <p className="food-item-price">${price}</p>
-
+  
+        <div className="food-item-info">
+          <div className="food-item-name-rating">
+            <p>{name}</p>
+            <img src={assets.rating_stars} alt="" />
+          </div>
+          <p className="food-item-des">{description}</p>
+          <p className="food-item-price">${price}</p>
         </div>
-      
-    </div>
-  )
-}
-
-export default FoodItem
+      </div>
+    );
+  };
+  export default FoodItem
+  

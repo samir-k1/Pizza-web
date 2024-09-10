@@ -7,6 +7,7 @@ import Home from'./Pages/Home/Home'
 
 import Cart from './Pages/Cart/Cart';
 import PlaceOrder from './Pages/PlaceOrder/Placeorder';
+import Footer from './Components/Footer/Footer';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
 
 
       </Routes>
+      <Footer/>
     </>
   );
 }

@@ -5,7 +5,7 @@ import Exploremenu from '../../Components/ExploreMenu/Exploremenu'
 import { useState } from 'react'
 import FoodDisplay from '../../Components/FoodDisplay/FoodDisplay'
 const Home = () => {
-  const [category, setCategory] = useState();
+  const [category, setCategory] = useState('All');
 
   return (
     <div>

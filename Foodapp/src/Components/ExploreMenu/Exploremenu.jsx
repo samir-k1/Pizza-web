@@ -3,7 +3,7 @@ import './Exploremenu.css'
 import { menu_list } from '../../assets/assets'
 const Exploremenu = ({category,setCategory}) => {
   return (
-    <div className='explore-menu '>
+    <div className='explore-menu ' id='explore-menu'>
         <h1> explore menu </h1>
        <div className="Explore-list">
        {menu_list.map((item,index)=>{

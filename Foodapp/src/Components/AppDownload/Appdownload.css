@@ -1,0 +1,30 @@
+.download-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Align content to center horizontally */
+    justify-content: center;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .download-content p {
+    font-size: 18px;
+    margin-bottom: 20px; /* Gap between text and images */
+  }
+  
+  .Mobile-App {
+    display: flex;
+    gap: 20px; /* Gap between the images */
+  }
+  
+  .Mobile-App img {
+    width: 150px;  /* Adjust image size as needed */
+    height: auto;
+    cursor: pointer; /* Add cursor effect on hover */
+  }
+  
+  .Mobile-App img:hover {
+    transform: scale(1.1); /* Slight scale-up on hover */
+    transition: transform 0.3s ease;
+  }
+  

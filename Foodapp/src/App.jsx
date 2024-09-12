@@ -12,7 +12,7 @@ import Signup from './Signup/Signup';
 
 function App() {
   const [showSignup, setShowSignup] = useState(false);
-
+  
   const openSignup = () => setShowSignup(true);
   const closeSignup = () => setShowSignup(false);
   return (

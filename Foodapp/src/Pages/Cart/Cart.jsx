@@ -1,42 +1,81 @@
-import React, { useContext } from 'react';
-import './Cart.css'
-import { StoreContext } from '../Context/StoreContext'
+import React, { useContext, useState } from 'react';
+import './Cart.css';
+import { StoreContext } from '../Context/StoreContext';
 
 const Cart = () => {
-  const { cartItems, removeFromCart } = useContext(StoreContext);
+  const { cartItems, food_list, removeFromCart } = useContext(StoreContext);
+  const [promoCode, setPromoCode] = useState('');
 
+  // Calculate total price
   const calculateTotal = () => {
-    return cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
+    return Object.keys(cartItems).reduce((total, itemId) => {
+      const item = food_list.find(food => food._id === itemId);
+      return total + (item ? item.price * cartItems[itemId] : 0);
+    }, 0);
+  };
+
+  // Handle promo code submit
+  const handlePromoSubmit = (e) => {
+    e.preventDefault();
+    // Add promo code functionality here
+    console.log("Promo Code Submitted: ", promoCode);
   };
 
   return (
-    <div className="cart-container">
-      <h2>Your Cart</h2>
-      <div className="cart-items">
-        {cartItems.length === 0 ? (
-          <p>Your cart is empty</p>
-        ) : (
-          cartItems.map((item) => (
-            <div key={item.id} className="cart-item">
-              <img src={item.image} alt={item.name} className="item-image" />
-              <div className="item-details">
-                <h3>{item.name}</h3>
-                <p>${item.price}</p>
-                <p>Quantity: {item.quantity}</p>
-                <button onClick={() => removeFromCart(item.id)} className="remove-btn">
-                  Remove
-                </button>
-              </div>
-            </div>
-          ))
-        )}
+    <div className="cart">
+      <div className="cart-header">
+        <h2>Cart</h2>
       </div>
-      {cartItems.length > 0 && (
+
+      <div className="cart-items">
+        <div className="cart-items-title">
+          <p>Items</p>
+          <p>Title</p>
+          <p>Price</p>
+          <p>Quantity</p>
+          <p>Total</p>
+          <p>Remove</p>
+        </div>
+        <br />
+        <hr />
+
+        {/* Loop through food_list and display items in cart */}
+        {food_list.map((item) => {
+          if (cartItems[item._id] > 0) {
+            return (
+              <div key={item._id} className='cart-items-detail'>
+                <img src={item.image} alt='' className="cart-image" />
+                <p>{item.name}</p>
+                <p>${item.price}</p>
+                <p>{cartItems[item._id]}</p>
+                <p>${item.price * cartItems[item._id]}</p>
+                <button onClick={() => removeFromCart(item._id)} className="remove-btn">x</button>
+              </div>
+            );
+          }
+          return null;
+        })}
+
         <div className="cart-summary">
           <h3>Total: ${calculateTotal()}</h3>
-          <button className="checkout-btn">Checkout</button>
+          <button className="checkout-btn">Proceed to Checkout</button>
         </div>
-      )}
+
+        {/* Promo Code Section */}
+        <div className="promo-code-section">
+          <form onSubmit={handlePromoSubmit}>
+            <label htmlFor="promo">If you have a promo code, enter it here</label>
+            <input
+              type="text"
+              id="promo"
+              value={promoCode}
+              onChange={(e) => setPromoCode(e.target.value)}
+              placeholder="Promo code"
+            />
+            <button type="submit" className="promo-submit-btn">Submit</button>
+          </form>
+        </div>
+      </div>
     </div>
   );
 };

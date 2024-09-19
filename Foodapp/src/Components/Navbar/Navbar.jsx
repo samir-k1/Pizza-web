@@ -30,7 +30,9 @@ const Navbar = ({ openSignup }) => {
       <div className="navbar-right">
         <img src={assets.search_icon} alt="Search" />
         <div className="searchicon">
-          <img src={assets.basket_icon} alt="Basket"  /> {/* Corrected onClick here */}
+          <Link to="/cart"> {/* Use Link here to route to the cart page */}
+            <img src={assets.basket_icon} alt="Basket" />
+          </Link>
           <div className="dot"></div>
         </div>
         <button className="Navbar-btn" onClick={openSignup}>Sign Up</button>

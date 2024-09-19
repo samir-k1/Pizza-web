@@ -1,96 +1,151 @@
-.cart-container {
-    width: 100%;
-    max-width: 500px;
-    margin: 20px auto;
-    padding: 20px;
-    background-color: #f4f4f4;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+/* Container Styles */
+.cart {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  font-family: Arial, sans-serif;
+}
+
+.cart-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.cart-items {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.cart-items-title {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  text-align: left;
+  font-weight: bold;
+  padding: 10px 0;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.cart-items-detail {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.cart-image {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.remove-btn {
+  background: none;
+  border: none;
+  color: red;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.remove-btn:hover {
+  color: darkred;
+}
+
+/* Summary Section */
+.cart-summary {
+  margin-top: 20px;
+  text-align: right;
+}
+
+.cart-summary h3 {
+  font-size: 24px;
+}
+
+.checkout-btn {
+  background-color: #ff4c3b;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.checkout-btn:hover {
+  background-color: #e8433e;
+}
+
+/* Promo Code Section */
+.promo-code-section {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.promo-code-section form {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.promo-code-section input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 200px;
+}
+
+.promo-submit-btn {
+  background-color: black;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.promo-submit-btn:hover {
+  background-color: #333;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .cart-items-title, .cart-items-detail {
+    grid-template-columns: repeat(3, 1fr);
   }
-  
-  h2 {
-    text-align: center;
-    margin-bottom: 20px;
-    font-size: 1.5rem;
+
+  .cart-items-title p:nth-child(3),
+  .cart-items-title p:nth-child(4),
+  .cart-items-title p:nth-child(5),
+  .cart-items-detail p:nth-child(3),
+  .cart-items-detail p:nth-child(4),
+  .cart-items-detail p:nth-child(5) {
+    display: none;
   }
-  
-  .cart-items {
-    max-height: 300px;
-    overflow-y: auto;
-    margin-bottom: 20px;
-  }
-  
-  .cart-item {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 10px;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    background-color: white;
-  }
-  
-  .item-image {
-    width: 70px;
-    height: 70px;
-    border-radius: 5px;
-    object-fit: cover;
-  }
-  
-  .item-details {
-    flex: 1;
-    margin-left: 15px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
-  
-  .item-details h3 {
-    margin: 0;
-    font-size: 1.2rem;
-  }
-  
-  .item-details p {
-    margin: 5px 0;
-  }
-  
-  .remove-btn {
-    background-color: #ff4d4f;
-    color: white;
-    border: none;
-    padding: 5px 10px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  
-  .remove-btn:hover {
-    background-color: #ff7875;
-  }
-  
+
   .cart-summary {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-top: 1px solid #ddd;
-    padding-top: 10px;
+    text-align: left;
+    margin-top: 20px;
   }
-  
+
   .checkout-btn {
-    background-color: #4caf50;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
+    width: 100%;
+    text-align: center;
   }
-  
-  .checkout-btn:hover {
-    background-color: #45a049;
+
+  .promo-code-section {
+    flex-direction: column;
+    align-items: flex-start;
   }
-  
-  .cart-summary h3 {
-    margin: 0;
+
+  .promo-code-section input {
+    width: 100%;
   }
-  
+
+  .promo-submit-btn {
+    width: 100%;
+    text-align: center;
+  }
+}

@@ -1,64 +1,112 @@
-.Navbar{
-    padding: 20px 0px;
-
+/* Base styles for the Navbar */
+.Navbar {
     display: flex;
-    align-items: center;
     justify-content: space-between;
-}
-
-
-.Navbar.logo{
- width: 80px;
-
-
-}
-
-.ul-list{
-    display: flex;
-    padding: 2px;
-    gap: 25px;
-    font-size: 20px;
-    list-style-type: none;
-}
-
-.navbar-right{
-    display: flex;
-    gap: 40px;
     align-items: center;
+    padding: 15px 20px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
-.Navbar-btn{
-    background: rgb(225, 214, 152);
-    font-size: 12px;
-    color: gray;
-    border: 1px tomato;
+/* Navbar logo */
+.Navbar img {
+    width: 120px; /* Adjust the logo size */
+    height: auto;
+}
+
+/* Styling for the navbar links list */
+.ul-list {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.ul-list a {
+    text-decoration: none;
+    color: #333;
+    font-size: 16px;
+    font-weight: 500;
     padding: 10px;
-    border-radius: 40px ;
+    transition: color 0.3s ease;
+}
+
+/* Active menu item styling */
+.ul-list a.active {
+    color: #ff9800;
+    border-bottom: 2px solid #ff9800;
+}
+
+/* Hover effect for navbar links */
+.ul-list a:hover {
+    color: #ff9800;
+}
+
+/* Navbar right side (search icon, cart icon, and sign-up button) */
+.navbar-right {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* Search and basket icons */
+.navbar-right img {
+    width: 24px;
+    height: 24px;
     cursor: pointer;
-    width: 80px;
 }
-.Navbar .active{
-    padding-bottom: 2px;
-    border-bottom: 2px solid;
-}
+
+/* Positioning the dot on the basket icon */
 .searchicon {
     position: relative;
-    display: inline-block; /* Ensures the icon and dot are in the same block */
-  }
-  
-  .searchicon img {
-    width: 40px; /* Adjust the size of the basket icon if needed */
-    height: 40px;
-  }
-  
-  .searchicon .dot {
+}
+
+.dot {
     position: absolute;
-    top: 0; /* Position at the top */
-    right: 0; /* Position at the right */
-    width: 10px;  /* Size of the dot */
-    height: 10px; /* Size of the dot */
-    background-color: red; /* Color of the dot */
-    border-radius: 50%;    /* Makes it a perfect circle */
-    border: 2px solid white; /* Optional border to make it stand out */
-  }
-  
+    top: -5px;
+    right: -5px;
+    width: 8px;
+    height: 8px;
+    background-color: #ff9800;
+    border-radius: 50%;
+    display: none; /* Hide by default */
+}
+
+/* Show dot when an item is added to the cart */
+.searchicon.has-items .dot {
+    display: block;
+}
+
+/* Sign-up button styles */
+.Navbar-btn {
+    background-color: #ff9800;
+    color: #fff;
+    font-size: 16px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Hover effect for the sign-up button */
+.Navbar-btn:hover {
+    background-color: #e67b00;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .ul-list {
+        display: none; /* Hide the navbar links on mobile, can be replaced by a hamburger menu */
+    }
+    
+    .navbar-right {
+        gap: 10px; /* Adjust the gap for smaller screens */
+    }
+    
+    .Navbar-btn {
+        padding: 8px 16px;
+    }
+}
